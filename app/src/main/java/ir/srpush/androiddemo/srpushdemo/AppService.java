@@ -150,6 +150,7 @@ public class AppService extends Service {
 
         Map<String, String> headers = new HashMap<>();
         headers.put("session", session);
+        headers.put("Platform", "android");
 
         Draft protocol = new Draft_6455();
 
