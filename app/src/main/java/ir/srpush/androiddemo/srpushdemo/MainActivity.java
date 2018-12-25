@@ -30,12 +30,12 @@ public class MainActivity extends AppCompatActivity implements IRequestReciever 
     private TextView txtMessages = null;
     private TextView txtSession = null;
 
-    private String Username = "5ba4b8939f63c33b916cfe2f";
-    private String Pass = "ad016775cc42cdc93a9347482d3375c480e37b39";
-    private String apiHost = "http://192.168.1.100:9779/api/createSession";
-    private String wsHost = "ws://192.168.1.100:9780";
-    private String clientUserID = "DRIVER_145";
-    private int sessionTimeout = 500; // expire session after this seconds
+    private String Username = "testcom";
+    private String SoPass = "641b788ascascas54ASCopja89s7asc1561ba";
+    private String apiHost = "https://testcom.srpush.ir:2021/api/createSession";
+    private String wsHost = "wss://testcom.srpush.ir:2020";
+    private String clientUserID = "DRIVER_146";
+    private int sessionTimeout = 0; // expire session after this seconds
     private String session = "";
 
     private BroadcastReceiver uiThreadMessageReceiver = null;
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements IRequestReciever 
         params.set_uri(apiHost);
         params.set_Jobj(json);
         params.set_username(Username);
-        params.set_pass(Pass);
+        params.set_pass(SoPass);
         AsyncTaskManager.Start(params);
     }
 

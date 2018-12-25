@@ -138,7 +138,7 @@ public class AppService extends Service {
     }
 
     private void connectWS() {
-        handleMessage("status:connecting ...");
+        handleMessage("status:connecting");
 
         URI uri;
         try {
@@ -150,7 +150,7 @@ public class AppService extends Service {
 
         Map<String, String> headers = new HashMap<>();
         headers.put("session", session);
-        headers.put("Platform", "android");
+        headers.put("platform", "android");
 
         Draft protocol = new Draft_6455();
 
@@ -159,7 +159,7 @@ public class AppService extends Service {
             public void onOpen(ServerHandshake serverHandshake) {
                 lastPing = Calendar.getInstance().getTime();
                 IsOnline = true;
-                handleMessage("status:connected");
+                handleMessage("status:online");
                 Log.d("srpushDemo", "client is now online");
             }
 
@@ -183,14 +183,14 @@ public class AppService extends Service {
             public void onClose(int i, String s, boolean b) {
                 Log.i("srpushDemo", "Closed " + s);
                 IsOnline = false;
-                handleMessage("status:closed");
+                handleMessage("status:offline");
             }
 
             @Override
             public void onError(Exception e) {
                 Log.i("srpushDemo", "Error " + e.getMessage());
                 IsOnline = false;
-                handleMessage("status:error");
+                handleMessage("status:offline");
             }
         };
         mWebSocketClient.connect();
