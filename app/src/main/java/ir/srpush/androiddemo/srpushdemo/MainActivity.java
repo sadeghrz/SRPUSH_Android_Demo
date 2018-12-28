@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.GoogleApiAvailability;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements IRequestReciever 
     private String SoPass = "641b788ascascas54ASCopja89s7asc1561ba";
     private String apiHost = "https://testcom.srpush.ir:2021/api/createSession";
     private String wsHost = "wss://testcom.srpush.ir:2020";
+    private String FCM_Token = null;
     private String clientUserID = "DRIVER_146";
     private int sessionTimeout = 0; // expire session after this seconds
     private String session = "";
@@ -105,6 +108,8 @@ public class MainActivity extends AppCompatActivity implements IRequestReciever 
         try {
             json.put("uid", clientUserID);
             json.put("ExTime", sessionTimeout);
+            json.put("platform", "android");
+            json.put("platformTools", FCM_Token);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -129,6 +134,7 @@ public class MainActivity extends AppCompatActivity implements IRequestReciever 
         SharedPreferences.Editor editor = this
                 .getSharedPreferences("authPrefrence", MODE_PRIVATE).edit();
         editor.putString("session", session);
+        editor.putString("FCM_Token", FCM_Token);
         editor.putString("host", wsHost);
         editor.apply();
 
