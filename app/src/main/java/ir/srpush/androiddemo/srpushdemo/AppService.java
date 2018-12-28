@@ -34,6 +34,7 @@ public class AppService extends Service {
     private boolean mActive = false;
     private Thread mThread;
     public static String session;
+    public static String FCM_Token;
     private Date lastPing = Calendar.getInstance().getTime();
     public static Boolean IsOnline = true;
     private GsonBuilder builder = new GsonBuilder();
@@ -61,6 +62,7 @@ public class AppService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         SharedPreferences prefs = getSharedPreferences("authPrefrence", MODE_PRIVATE);
         session = prefs.getString("session", null);
+        FCM_Token = prefs.getString("FCM_Token", null);
         serverAddress = prefs.getString("host", null);
 
         if (session != null && serverAddress != null) {
@@ -151,6 +153,7 @@ public class AppService extends Service {
         Map<String, String> headers = new HashMap<>();
         headers.put("session", session);
         headers.put("platform", "android");
+        headers.put("platformtools", FCM_Token);
 
         Draft protocol = new Draft_6455();
 
