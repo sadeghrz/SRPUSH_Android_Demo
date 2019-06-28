@@ -32,10 +32,17 @@ public class MainActivity extends AppCompatActivity implements IRequestReciever 
     private TextView txtMessages = null;
     private TextView txtSession = null;
 
-    private String Username = "testcom";
+    /*private String Username = "testcom";
     private String SoPass = "641b788ascascas54ASCopja89s7asc1561ba";
     private String apiHost = "https://testcom.srpush.ir:2021/api/createSession";
-    private String wsHost = "wss://testcom.srpush.ir:2020";
+    private String wsHost = "wss://testcom.srpush.ir:2020";*/
+
+    //
+    private String Username = "testcom1";
+    private String SoPass = "641b788bcd0fd46eed0f41870a5fc804560f7fba";
+    private String apiHost = "http://192.168.1.100:9779/api/createSession";
+    private String wsHost = "ws://192.168.1.100:9780";
+
     private String FCM_Token = null;
     private String clientUserID = "DRIVER_146";
     private int sessionTimeout = 0; // expire session after this seconds
