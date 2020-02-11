@@ -1,2 +1,2 @@
 # SRPUSH_Android_Demo
-SRPUSH (www.srpush.ir) Android sample project
+SRPUSH (www.srpush.ir) Android sample project 
